@@ -1,6 +1,6 @@
 **********************************************
 Straightforward Training™
-Using Metasploit/Meterpreter to Windows XP (Advance)
+Using Metasploit/Meterpreter to Windows XP (Short)
 Author: Saulo S. Ortiz
 Date: 20190908
 Update: 20190909
