@@ -20,53 +20,50 @@ these steps in this short guide. This guide is NOT for people that have no idea 
 configure Linux/Windows OS or VMs. Google is your best friend and research is part of the job.
 
 COMMONS COMMANDS TO KNOW:
-•	ls		- Lists Files (LS)
-•	pwd		- Prints the current path to screen
-•	cd		- Call Directory
-•	mkdir		- Make Directory
-•	rm		- Deletes a folder and files in it (also rm –rf, or rmdir)
-•	cat		- Prints the contents of a file to screen
-•	ifconfig		- Displays local network information
-•	echo		- Repeats a command to screen and assist in creating a file (Windows)
-•	ren		- Rename a file or folder (Windows)
+• ls		- Lists Files (LS)
+• pwd		- Prints the current path to screen
+• cd		- Call Directory
+• mkdir		- Make Directory
+• rm		- Deletes a folder and files in it (also rm –rf, or rmdir)
+• cat		- Prints the contents of a file to screen
+• ifconfig		- Displays local network information
+• echo		- Repeats a command to screen and assist in creating a file (Windows)
+• ren		- Rename a file or folder (Windows)
 
 LEGEND:
-•	Commands: 	Words in BOLD are commands
-•	Comments: 	Words in italic red are comments…many have additional commands
-•	Important: 	Words with asterisk lines are important notes
+• Commands: 	Words in BOLD are commands
+• Comments: 	Words in italic red are comments…many have additional commands
+• Important: 	Words with asterisk lines are important notes
 ****************************************************
 
 DEFAULT LOGINS:
-•	Kali: root/toor
+• Kali: root/toor
 
 WHAT YOU’LL NEED FOR THIS EXERCISE:
-•	A computer with minimum: 8GB RAM, 6 Core CPU and a HDD of 500GB
-•	ISO file of Windows XP SP2 or SP3 without Windows Update MS08_067
-•	ISO file of the latest Kali release
-•	OracleVirtualbox (free) or VMWare Workstation 12 or higher
+• A computer with minimum: 8GB RAM, 6 Core CPU and a HDD of 500GB
+• ISO file of Windows XP SP2 or SP3 without Windows Update MS08_067
+• ISO file of the latest Kali release
+• OracleVirtualbox (free) or VMWare Workstation 12 or higher
 
 ******************************************************************************
-NOTE: When using a VM make sure you change your resolution to the highest you
-can use without having any scroll bars on the sides or the bottom of the screen.
+NOTE: When using a VM make sure you change your resolution to the highest you can use without having any scroll bars on the
+sides or the bottom of the screen.
 ******************************************************************************
 
 SETUP:
-1. Install the VM application you want, then install Kali and Windows XP as VMs.
-Give Kali 4GB RAM and 40GB HDD space. Give Windows 1GB RAM. And also 40GB of HDD
-space.
-2. Give Kali 1 processor and 2 Cores of CPU. Give XP 1 processor with 1 Core
-CPU.
-3. Maximize the GPU memory on both Kali (1GB) and XP (512MB). Do not use 3D on
-any of them.
-4. Make sure both network connectivity are in NAT so they use the same network
-range. There is no need to be connected to the Internet for this to work.
+1. Install the VM application you want, then install Kali and Windows XP as VMs. Give Kali 4GB RAM and 40GB HDD space. Give
+Windows 1GB RAM. And also 40GB of HDD space.
+2. Give Kali 1 processor and 2 Cores of CPU. Give XP 1 processor with 1 Core CPU.
+3. Maximize the GPU memory on both Kali (1GB) and XP (512MB). Do not use 3D on any of them.
+4. Make sure both network connectivity are in NAT so they use the same network range. There is no need to be connected to
+the Internet for this to work.
 
 ATTACK:
 Run both Kali and XP VMs.
 
-1.	In Kali scan for live-hosts…
-a.	Type: nmap –Pn <target>/24
-i.	Annotate your findings like IPs and their services running if any
+1. In Kali scan for live-hosts…
+  a. Type: nmap –Pn <target>/24
+    i. Annotate your findings like IPs and their services running if any
 
 2.	Run metasploit…
 a.	Type: msfconsole
