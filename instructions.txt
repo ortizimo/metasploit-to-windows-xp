@@ -7,21 +7,17 @@ Update: 20190909
 **********************************************
 
 DISCLAIMER
-1. These steps are for educational purposes only and for use at your own network laboratory. If you use these steps without consent from the network
-owner, you’re on your own.
+1. These steps are for educational purposes only and for use at your own network laboratory. If you use these steps without
+consent from the network owner, you’re on your own.
 
-2. I am not responsible for any issues/damages to hardware or software by using
-any of the software mentioned in this guide nor damages by following the
-steps…do so at your own risk. I have tested these steps myself and found no
-issues/damage to my own systems. Also I am not responsible for software links,
-software availability or versions.
+2. I am not responsible for any issues/damages to hardware or software by using any of the software mentioned in this guide
+nor damages by following the steps…do so at your own risk. I have tested these steps myself and found no issues/damage to
+my own systems. Also I am not responsible for software links,software availability or versions.
 
-3. You will need to have common Linux knowledge to be able to follow this guide
-as well as what an .iso file is; installing and configuring a Linux distro in a
-VM environment, general VM knowledge, and basic DOS commands. I will not be
-covering these steps in this short guide. This guide is NOT for people that
-have no idea how to install, remove, update/upgrade, and configure Linux/Windows
-OS or VMs. Google is your best friend and research is part of the job.
+3. You will need to have common Linux knowledge to be able to follow this guide as well as what an .iso file is; installing
+and configuring a Linux distro in a VM environment, general VM knowledge, and basic DOS commands. I will not be covering
+these steps in this short guide. This guide is NOT for people that have no idea how to install, remove, update/upgrade, and
+configure Linux/Windows OS or VMs. Google is your best friend and research is part of the job.
 
 COMMONS COMMANDS TO KNOW:
 •	ls		- Lists Files (LS)
