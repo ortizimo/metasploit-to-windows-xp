@@ -154,13 +154,13 @@ NOTE: You’re back in meterpreter!
   a. Type: run vnc
     i. Wait a few seconds for this to work
 
-19. Check the logs in Windows XP…
+19. Check the logs in Windows XP...
   a. Navigate to Event Viewer inside Administrative Tools and check the logs
 
-20. Using meterpreter clear the logs in XP…
+20. Using meterpreter clear the logs in XP...
   a. Type: clearev
 
-21. Done…You can close all screens now.
+21. Done...You can close all screens now.
 
 
 QUESTIONS
