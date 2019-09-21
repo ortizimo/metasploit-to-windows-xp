@@ -1,6 +1,6 @@
 **********************************************
 Straightforward Training™
-Using Metasploit/Meterpreter into Windows XP (Advance)
+Using Metasploit/Meterpreter into Windows XP (1/2)
 Author: Saulo S. Ortiz
 Date: 20190908
 Update: 20190921
@@ -57,7 +57,7 @@ SETUP:
   b. Kali = 1 CPU/2 Cores, 4GB RAM and 40GB HDD space.
 3. Maximize the GPU memory on both Kali (1GB) and XP (512MB).
   a. Do not use 3D on any of them.
-4. Make sure both VMs networks are in NAT so they use the same network range. There is no need to be connected to the Internet
+4. Make sure both VM networks are in NAT so they use the same network range. There is no need to be connected to the Internet
 for this to work.
 
 ATTACK:
