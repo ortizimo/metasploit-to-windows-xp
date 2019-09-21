@@ -219,16 +219,21 @@ In Linux, folders and files are considered the same thing…files. Do some resea
 
 21. What is the man-page?
 
-22. Using the man-page (or the help description that every program comes with) find out if UFW is running or not? If not then enable it.
+22. Using the man-page (or the help description that every program comes with) find out if UFW is running or not? If not then
+enable it.
 
-23. Using your ninja-like research abilities (Google), find out what ports are most common for hackers to attack and go disable them in UFW.
+23. Using your ninja-like research abilities (Google), find out what ports are most common for hackers to attack and go
+disable them in UFW.
 
-24. Using nmap, search for open ports on your system and check if you successfully blocked any of the ports you blocked in UFW. Do you have open ports even after you closed them? Why is this?
+24. Using nmap, search for open ports on your system and check if you successfully blocked any of the ports you blocked in
+UFW. Do you have open ports even after you closed them? Why is this?
 
 25. In a few words, describe the difference between the command nmap –Pn and nmap –sn.
 
-26. One of these command just pings to see if there are live-hosts, the other searches for live-hosts and ports running. Which one does what?
+26. One of these command just pings to see if there are live-hosts, the other searches for live-hosts and ports running. Which
+one does what?
 
-27. Using the help flag or man-page, which nmap command will give you’re the O/S version and services running at the same time? What other commands give you similar information?
+27. Using the help flag or man-page, which nmap command will give you’re the O/S version and services running at the same time?
+What other commands give you similar information?
 
 28. What is banner grabbing? What commands can you use to do this?
