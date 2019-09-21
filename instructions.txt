@@ -1,6 +1,6 @@
 **********************************************
 Straightforward Training™
-Using Metasploit/Meterpreter into Windows XP (1/2)
+Using Metasploit/Meterpreter into Windows XP (Step #1)
 Author: Saulo S. Ortiz
 Date: 20190908
 Update: 20190921
@@ -32,8 +32,8 @@ COMMONS COMMANDS TO KNOW:
 
 LEGEND:
 • Commands: 	Words in BOLD are commands
-• Comments: 	Words in italic red are comments…many have additional commands
-• Important: 	Words with asterisk lines are important notes
+• Comments: 	Words in italic red are comments…some are extra commands
+• Important: 	Words with asterisk lines are important notes or comments
 ****************************************************
 
 DEFAULT LOGINS:
@@ -160,21 +160,22 @@ a. Type: upload hacked.txt
 
 18. Get a GUI of the target machine…
   a. Type: run vnc
-    i. Wait a few seconds for this to work…if it doesn’t then there might be something blocking the connection. Try
-    again or don’t. The GUI gives you away as the user can see the mouse moving.
+  i.	Wait a few seconds for this to work…if it doesn’t then there might be something blocking the connection. Try
+  again or don’t. The GUI will give you away as the user will see the mouse moving.
 
 19. Go into Events in Windows and look at all the logs
 
 20. STOP! Instead of clearing the logs now we will move on to make a new user to maintain persistence. But in case you
 were curious, the command to clear the logs is:
   a. Type: clearev
+    i. This will erase all logs and the admin will see someone was in the system…use it if you DON'T plan to return to
+    this system
 
 ******************************************************************************
-NOTE: Move to the Maintain Persistence Guide
+NOTE: Continue to the Maintain Persistence Guide
 ******************************************************************************
 
-
-QUESTIONS
+QUESTIONS:
 In Linux, folders and files are considered the same thing…files. Do some research and answer the following questions:
 
 1. What does the command (dir) in Windows do? What is the equivalent in Linux?
