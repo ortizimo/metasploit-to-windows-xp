@@ -26,7 +26,7 @@ COMMONS COMMANDS TO KNOW:
 • mkdir		- Make Directory
 • rm		- Deletes a folder and files in it (also rm –rf, or rmdir)
 • cat		- Prints the contents of a file to screen
-• ifconfig		- Displays local network information
+• ifconfig	 - Displays local network information
 • echo		- Repeats a command to screen and assist in creating a file (Windows)
 • ren		- Rename a file or folder (Windows)
 
