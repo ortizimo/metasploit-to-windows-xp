@@ -32,7 +32,7 @@ COMMONS COMMANDS TO KNOW:
 
 LEGEND:
 • Commands: 	Words in BOLD are commands
-• Comments: 	Words in italic red are comments…some are extra commands
+• Comments: 	Words in italic red are comments or additional commands
 • Important: 	Words with asterisk lines are important notes or comments
                 ****************************************************
 
