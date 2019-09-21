@@ -34,7 +34,7 @@ LEGEND:
 • Commands: 	Words in BOLD are commands
 • Comments: 	Words in italic red are comments…some are extra commands
 • Important: 	Words with asterisk lines are important notes or comments
-****************************************************
+              ****************************************************
 
 DEFAULT LOGINS:
 • Kali: root/toor
