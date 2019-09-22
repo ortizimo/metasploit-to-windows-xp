@@ -50,7 +50,7 @@ NOTE: When using a VM make sure you change your resolution to the highest you ca
 sides or the bottom of the screen.
 ******************************************************************************
 
-SETUP:
+VM SETUP:
 1. Install the VM application you want, then install Kali and Windows XP as VMs.
 2. Give the VMs:
   a. Windows = 1 CPU/1 Core, 1GB RAM, and 8GB of HDD space.
@@ -61,10 +61,13 @@ SETUP:
 for this to work.
 
 Additionally, some things need to be changed in Windows XP for these steps to work.
+WINDOWS XP CHANGES:
+First we need to turn OFF the Firewall…I know what you’re thinking, but it needs to happen. Then, we need to turn ON the Audit
+Logon Event that will recognize when someone else is in the system. This is off by default. This option and many more will be
+ON if an administrator is good at their job.
 
-First you need to turn OFF the Firewall…I know what you’re thinking, but it needs to happen. Second you need to turn ON the Audit
-Logon Event that will recognize someone else is in the system. This is off by default and we need it on for training purposes.
-Also, if an administrator is good at their job this would have been turned on.
+The next thing we need to change is to allow users to connect remotely to this computer. And lastly we need to change the way
+the users log on to the system.
 
 To turn off the Firewall…
 1. Click: Start > Control Panel > Firewall
@@ -76,7 +79,20 @@ To turn on the Audit Logon Event…
 3. Select: Audit logon events and select both check boxes
 4. Close and go to Event Viewer
 5. Select: Security and live it open
-6. Return to Kali
+
+Allow remote users…
+1. Click: Start > Control Panel > System
+2. Under the Remote tab check the Allow user to connect remotely to this computer checkbox, then click OK
+
+Change user logon…
+1. Click: Start > Control Panel > User Accounts
+2. Click: Change the way users log on or off
+3. Uncheck the Use the Welcome screen checkbox
+
+******************************************************************************
+NOTE: If your administrator account has no password create one before you logoff!!!
+******************************************************************************
+4. Log OFF
 
 Now we’re set. Continue on to Kali VM.
 
