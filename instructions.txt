@@ -32,7 +32,7 @@ COMMONS COMMANDS TO KNOW:
 
 LEGEND:
 • Commands: 	Words in BOLD are commands
-• Comments: 	Words in italic red are comments or additional commands
+• Comments: 	Words in italic red are comments or additional gitgcommands
 • Important: 	Words with asterisk lines are important notes or comments
                 ****************************************************
 
@@ -160,8 +160,12 @@ a. Type: upload hacked.txt
 
 18. Get a GUI of the target machine…
   a. Type: run vnc
-  i.	Wait a few seconds for this to work…if it doesn’t then there might be something blocking the connection. Try
-  again or don’t. The GUI will give you away as the user will see the mouse moving.
+    i.	Wait a few seconds for this to work…if it doesn’t then there might be something blocking the connection.
+
+******************************************************************************
+NOTE: With this VNC connection you can control the mouse; it’s just a viewing option so you can see what
+the user is actually doing.
+******************************************************************************
 
 19. Go into Events in Windows and look at all the logs
 
