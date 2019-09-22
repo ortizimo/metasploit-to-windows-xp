@@ -172,14 +172,14 @@ NOTE: Meterpreter can use both ipconfig or ifconfig…they work the same.
   a. Type: ls or dir
     i. You can also open a new terminal and check
 
-15. Open a new terminal and edit the file…
+17. Open a new terminal and edit the file…
   a. Type: nano hacked.txt
   b. In a new line type: don’t forget to smile!
   c. Type: # (hash tag/pound) in front of the first line to comment it out
   d. Save it: Ctrl+S
   e. Ctrl+X to exit
 
-16. Find the correct session ID for this attack…
+18. Find the correct session ID for this attack…
   a. Type: sessions
   b. Type: sessions –i <#>
     i. Replace the <#> with the correct number for the session
@@ -188,10 +188,10 @@ NOTE: Meterpreter can use both ipconfig or ifconfig…they work the same.
 NOTE: You’re back in meterpreter!
 ******************************************************************************
 
-17. Upload the file back to the target…
-a. Type: upload hacked.txt
+19. Upload the file back to the target…
+  a. Type: upload hacked.txt
 
-18. Get a GUI of the target machine…
+20. Get a GUI of the target machine…
   a. Type: run vnc
     i.	Wait a few seconds for this to work…if it doesn’t then there might be something blocking the connection.
 
@@ -200,13 +200,12 @@ NOTE: With this VNC connection you can control the mouse; it’s just a viewing 
 the user is actually doing.
 ******************************************************************************
 
-19. Go into Events in Windows and look at all the logs
+21. Go into Events in Windows and look at all the logs
 
-20. STOP! Instead of clearing the logs now we will move on to make a new user to maintain persistence. But in case you
+22. STOP! Instead of clearing the logs now we will move on to make a new user to maintain persistence. But in case you
 were curious, the command to clear the logs is:
   a. Type: clearev
-    i. This will erase all logs and the admin will see someone was in the system…use it if you DON'T plan to return to
-    this system
+    i. This will erase all logs and can alert the admin that someone was in the system…
 
 ******************************************************************************
 NOTE: Continue to the Maintain Persistence Guide
