@@ -61,6 +61,7 @@ VM SETUP:
 for this to work.
 
 Additionally, some things need to be changed in Windows XP for these steps to work.
+
 WINDOWS XP CHANGES:
 First we need to turn OFF the Firewall…I know what you’re thinking, but it needs to happen. Then, we need to turn ON the Audit
 Logon Event that will recognize when someone else is in the system. This is off by default. This option and many more will be
@@ -88,7 +89,6 @@ Change user logon…
 1. Click: Start > Control Panel > User Accounts
 2. Click: Change the way users log on or off
 3. Uncheck the Use the Welcome screen checkbox
-
 ******************************************************************************
 NOTE: If your administrator account has no password create one before you logoff!!!
 ******************************************************************************
