@@ -89,9 +89,11 @@ Change user logon…
   1. Click: Start > Control Panel > User Accounts
   2. Click: Change the way users log on or off
   3. Uncheck the Use the Welcome screen checkbox
+
 ******************************************************************************
 NOTE: If your administrator account has no password create one before you logoff!!!
 ******************************************************************************
+
 4. Log OFF
 
 Now we’re set. Continue on to Kali VM.
