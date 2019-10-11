@@ -71,24 +71,24 @@ The next thing we need to change is to allow users to connect remotely to this c
 the users log on to the system.
 
 To turn off the Firewall…
-1. Click: Start > Control Panel > Firewall
-2. Under the General tab select OFF then click OK
+  1. Click: Start > Control Panel > Firewall
+  2. Under the General tab select OFF then click OK
 
 To turn on the Audit Logon Event…
-1. Click: Start > Control Panel > Administrative Tools > Local Security Policy
-2. Click: Local Policies > Audit Policy
-3. Select: Audit logon events and select both check boxes
-4. Close and go to Event Viewer
-5. Select: Security and live it open
+  1. Click: Start > Control Panel > Administrative Tools > Local Security Policy
+  2. Click: Local Policies > Audit Policy
+  3. Select: Audit logon events and select both check boxes
+  4. Close and go to Event Viewer
+  5. Select: Security and live it open
 
 Allow remote users…
-1. Click: Start > Control Panel > System
-2. Under the Remote tab check the Allow user to connect remotely to this computer checkbox, then click OK
+  1. Click: Start > Control Panel > System
+  2. Under the Remote tab check the Allow user to connect remotely to this computer checkbox, then click OK
 
 Change user logon…
-1. Click: Start > Control Panel > User Accounts
-2. Click: Change the way users log on or off
-3. Uncheck the Use the Welcome screen checkbox
+  1. Click: Start > Control Panel > User Accounts
+  2. Click: Change the way users log on or off
+  3. Uncheck the Use the Welcome screen checkbox
 ******************************************************************************
 NOTE: If your administrator account has no password create one before you logoff!!!
 ******************************************************************************
@@ -172,7 +172,7 @@ NOTE: Meterpreter can use both ipconfig or ifconfig…they work the same.
   c. Type: exit
     i. You’re back in meterpreter
 
-13.	Verify the file is there…
+13. Verify the file is there…
   a.	Type: ls or dir
   b.	Type: cd gothacked
   c.	Type: cat hacked.txt
