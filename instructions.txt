@@ -384,7 +384,8 @@ ATTACK:
 
 25. Go into Events in Windows XP and look at all the logs
 
-26. STOP! Instead of clearing the logs now we will move on to make a new user to maintain persistence. But in case you were curious, the command to clear the logs is:
+26. STOP! Instead of clearing the logs now we will move on to make a new user to maintain persistence. But in case you were
+curious, the command to clear the logs is:
   a. Type: clearev
 
 27. Continue to Step #2: Maintain Persistence
