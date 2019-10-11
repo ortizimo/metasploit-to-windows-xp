@@ -291,7 +291,7 @@ What other commands give you similar information?
 
 28. What is banner grabbing? What commands can you use to do this?
 
-29.	What other commands did we use in this guide to get target information?
+29. What other commands did we use in this guide to get target information?
 
 SHORT/REFRESHER VERSION
 
